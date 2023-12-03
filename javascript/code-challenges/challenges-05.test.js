@@ -8,7 +8,22 @@ Write a function that finds the maximum value in an array.
 E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
-  // Solution code here...
+  // This part explains that if the length of the array is 0, the return in console will be undefined
+  if(arr.length === 0)
+  {return undefined;}
+
+  //We need to put the largest number in the array to the very first number, so that we can grab the first number
+  // (which is [0] in an array) and that's our maximum value
+
+  let max = arr[0];
+
+  //m will stand for max
+  for(let m = 1; m<arr.length; m++)
+  {if (arr[m]>max){
+    max = arr[m];
+  }
+  }
+  return max;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -24,7 +39,8 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 };
 
 const getCourseKeys = (obj) => {
-  // Solution code here...
+  //Object.value is a built-in method to return an array of the value's properties
+  return Object.value(obj);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -36,8 +52,14 @@ Write a function named checkValues that takes in an object and a value and retur
 ------------------------------------------------------------------------------------------------ */
 
 const checkValues = (obj, value) => {
-  // Solution code here...
+
+  // Like challenge 2, Object.value will get the array  and you can make sure the value returns true
+  const valuesCheck =Object.values(obj);
+
+  return valuesCheck.includes(value);
+
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -114,8 +136,15 @@ const characters = [
 ];
 
 const getHouses = (arr) => {
-  let houses = [];
-  // Solution code here...
+
+  const houseSet = new Set();
+
+  arr.forEach((character)=>{
+    if(character.house){
+      houseSet.add(character.house);
+    }
+  });
+  const houses = Array.from(houseSet);
   return houses;
 };
 
@@ -132,8 +161,11 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
+  const characterObj = arr.find((char)=> char.name === character);
 
+  const hasChildren = characterObj && 'children' in characterObj && Object.values(characterObj.children).length>0;
+
+  return hasChildren;
 };
 
 /* ------------------------------------------------------------------------------------------------
