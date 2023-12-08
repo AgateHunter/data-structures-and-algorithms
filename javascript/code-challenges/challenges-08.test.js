@@ -25,7 +25,10 @@ let starWarsPeople = [
 ];
 
 const sortStarWarsCharacters = (starWarsArr) => {
-  // Solution code here...
+  //This will create the function
+
+  const tallCharacters = starWarsArr.sort((a,b)=> b.height - a.height);
+  return tallCharacters;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,7 +38,16 @@ Write a function named removeThree that takes an index and an array. The functio
 ------------------------------------------------------------------------------------------------ */
 
 const removeThree = (idx, arr) => {
-  // Solution code here...
+  // Make an if statement that says if the index is less than 0 or is greater/equal
+  // to the length of the array, it'll throw an error. Then splice to remove three pieces
+  if(idx <0 || idx>=arr.lenth){
+    console.error('invalid index');
+    return arr;
+  }
+
+  arr.slice(idx, 3);
+
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,8 +57,16 @@ Write a function named joinArray that takes an array and joins all of the elemen
 ------------------------------------------------------------------------------------------------ */
 
 const joinArray = (arr) => {
-  // Solution code here...
+  arr.join(' ');
+
+
 };
+
+const sampleArray = ['one', 'two', 'buckle', 'my', 'shoe'];
+
+const resultString = joinArray(sampleArray);
+
+console.log(resultString);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -63,7 +83,9 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  // Solution code here...
+  for (let p = 0; p <= str.length; p++) {
+    result.push(str.slice(p));
+  }
   return result;
 };
 
@@ -75,8 +97,10 @@ Write a function name wordsToCharList that, given a string as input, returns a n
 For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
-const wordsToCharList = (arr) => {
-  // Solution code here...
+const wordsToCharList = (string) => {
+  //this function creates a solution using split
+  return string.split(' ');
+
 };
 
 
